@@ -1,0 +1,15 @@
+!!! 5
+html
+  head
+    title norema
+    link(href="/css/bootstrap.min.css", rel="stylesheet")
+    link(href="/css/norema.css", rel="stylesheet")
+  body
+    .navbar.navbar-fixed-top
+      .navbar-inner
+        .container
+          a.brand(href="/") norema
+          form.navbar-search.pull-right#domain
+            input(type="text", value=query, name="query", placeholder="search")
+    .container
+       block content

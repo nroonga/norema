@@ -3,6 +3,6 @@ extends layout
 block content
   if records
     each record, index in records
-      .well
+      .record
         h2 #{record.data.title}
         !{record.data.desc}

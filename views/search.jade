@@ -1,12 +1,16 @@
 extends layout
 
 block content
-  if records
+  if records.length > 0
     .alert.alert-info
-      = "Found " + num_found + " entries. Showing " + from + " - " + to + " (" + num_showing + " entries)."
+      | Found #{num_found} entries.
+      | Showing #{from} - #{to} (#{num_showing} entries).
 
     each record, index in records
       .record
         h2 #{record.data.title}
         p= record.data.path
         !{record.data.desc}
+  else
+    .alert.alert-info
+      | No entry found.

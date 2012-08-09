@@ -30,6 +30,7 @@ function parse(doc, context) {
   title = doc.textRaw;
   context = context || {};
   context.items = context.items || [];
+  context.path = context.path || [];
 
   if (title) {
     context.title = title;
@@ -38,9 +39,13 @@ function parse(doc, context) {
   if (doc.desc) {
     item.desc = doc.desc;
     item.title = context.title;
+    item.path = context.path.map(function(item) {
+      return item.title;
+    }).join(' \xbb ');
     context.items.push(item);
   }
 
+  context.path.push(item);
   for (var section in doc) {
     if (doc[section] instanceof Array) {
       doc[section].forEach(function(subdoc) {
@@ -48,6 +53,7 @@ function parse(doc, context) {
       });
     }
   }
+  context.path.pop(item);
 
   return context.items;
 }

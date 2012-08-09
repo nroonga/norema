@@ -5,4 +5,5 @@ block content
     each record, index in records
       .record
         h2 #{record.data.title}
+        p= record.data.path
         !{record.data.desc}

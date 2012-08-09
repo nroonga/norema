@@ -12,7 +12,7 @@ html
       .navbar-inner
         .container
           a.brand(href="/") norema
-          form.navbar-search.pull-right#domain
+          form(action="search").navbar-search.pull-right#domain
             input(type="text", value=query, name="query", placeholder="search")#query
     .container
       block content

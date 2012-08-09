@@ -2,6 +2,9 @@ extends layout
 
 block content
   if records
+    .alert.alert-info
+      = "Found " + num_found + " entries. Showing " + from + " - " + to + " (" + num_showing + " entries)."
+
     each record, index in records
       .record
         h2 #{record.data.title}

@@ -18,7 +18,9 @@
   },
   "dependencies": {
     "express": "",
-    "jade": ""
+    "jade": "",
+    "jsdom": "",
+    "async": ""
   },
   "scripts": {
     "test": "./node_modules/.bin/mocha --reporter list --ui tdd",

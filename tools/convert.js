@@ -64,6 +64,7 @@ function toSdf(records) {
   var version = (new Date()).getTime();
 
   return records.map(function(record, index) {
+    console.log(index, record.path, record.title);
     return {
       type: 'add',
       id: 'doc_' + index,

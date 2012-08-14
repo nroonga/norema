@@ -27,7 +27,7 @@ function htmlToText(html, callback) {
 function parse(doc, context) {
   var item = {};
 
-  title = doc.textRaw;
+  var title = doc.textRaw;
   context = context || {};
   context.items = context.items || [];
   context.path = context.path || [];

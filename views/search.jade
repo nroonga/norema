@@ -9,7 +9,13 @@ block content
     each record, index in records
       .record
         h2 #{record.data.title}
-        p= record.data.path
+        p.path
+          each title, pathIndex in record.data.path
+            span.label.label-inverse
+              = title
+            if pathIndex != record.data.path.length - 1
+              span  &raquo; 
+
         !{record.data.desc}
   else
     .alert.alert-info

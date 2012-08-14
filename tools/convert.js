@@ -41,7 +41,9 @@ function parse(doc, context) {
     item.title = context.title;
     item.path = context.path.map(function(item) {
       return item.title;
-    }).join(' \xbb ');
+    }).filter(function(title) {
+      return title;
+    });
     context.items.push(item);
   }
 

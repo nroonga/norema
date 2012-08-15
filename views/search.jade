@@ -18,8 +18,9 @@ block content
             h2 #{record.data.title}
             p.path
               each title, pathIndex in record.data.path
-                span.label.label-inverse
-                  = title
+                span
+                  a(href="/search?"+querystring.stringify({query: title}))
+                    = title
                 if pathIndex != record.data.path.length - 1
                   span  &raquo; 
 

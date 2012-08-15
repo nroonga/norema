@@ -27,11 +27,12 @@ block content
             !{record.data.desc}
 
     .span3
-      .well(style="padding: 8px 0;")
-        ul.nav.nav-list
-          each facet, index in path_facets
-            li
-              a
-                = facet.value
-                | 
-                span.badge.badge-info= facet.count
+      if path_facets.length > 0
+        .well(style="padding: 8px 0;")
+          ul.nav.nav-list
+            each facet, index in path_facets
+              li
+                a
+                  = facet.value
+                  | 
+                  span.badge.badge-info= facet.count

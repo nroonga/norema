@@ -7,6 +7,11 @@ body {
 }
 
 .search-on-top input#query {
-  width: 90%;
+  width: 920px;
   padding: 10px 10px;
+  margin-bottom: 10px;
+}
+
+.search-on-top input[type="submit"] {
+  padding: 7px 14px 7px 14px;
 }

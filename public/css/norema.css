@@ -15,3 +15,7 @@ body {
 .search-on-top input[type="submit"] {
   padding: 7px 14px 7px 14px;
 }
+
+footer {
+  margin-top: 20px;
+}

@@ -24,13 +24,6 @@ function htmlToText(html, callback) {
   });
 }
 
-function titleToId(title) {
-  return title
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, '_')
-    .replace(/^_|_$/g, '');
-}
-
 function parse(doc, context) {
   var item = {};
 
@@ -46,8 +39,6 @@ function parse(doc, context) {
   if (doc.desc) {
     item.desc = doc.desc;
     item.title = context.title;
-    item.id = titleToId(context.title);
-    console.log([item.id, item.title]);
     item.path = context.path.map(function(item) {
       return item.title;
     }).filter(function(title) {
@@ -58,7 +49,6 @@ function parse(doc, context) {
 
   context.path.push(item);
   for (var type in doc) {
-    console.log("TYPE", type);
     if (doc[type] instanceof Array) {
       doc[type].forEach(function(subdoc) {
         parse(subdoc, context);
@@ -74,7 +64,7 @@ function toSdf(records) {
   var version = (new Date()).getTime();
 
   return records.map(function(record, index) {
-    //console.log(index, record.path, record.title);
+    console.log(index, record.path, record.title);
     return {
       type: 'add',
       id: 'doc_' + index,

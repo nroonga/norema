@@ -1,3 +1,12 @@
 body {
   margin-top: 60px;
 }
+
+.search-on-top {
+  text-align: center;
+}
+
+.search-on-top input#query {
+  width: 90%;
+  padding: 10px 10px;
+}

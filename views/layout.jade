@@ -12,8 +12,7 @@ html
       .navbar-inner
         .container
           a.brand(href="/") norema
-          form(action="search").navbar-search.pull-right
-            input(type="text", value=query, name="query", placeholder="search")#query
+          block navbar
     .container
       block content
 

@@ -19,7 +19,8 @@ block content
       if records.length > 0
         each record, index in records
           .record
-            h2 #{record.data.title}
+            h2
+              a(href="http://nodejs.org/docs/latest/api/all.html#all_"+titleToId(record.data.title), target="_blank")= record.data.title
             p.path
               each title, pathIndex in record.data.path
                 span

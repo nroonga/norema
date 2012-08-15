@@ -48,9 +48,9 @@ function parse(doc, context) {
   }
 
   context.path.push(item);
-  for (var section in doc) {
-    if (doc[section] instanceof Array) {
-      doc[section].forEach(function(subdoc) {
+  for (var type in doc) {
+    if (doc[type] instanceof Array) {
+      doc[type].forEach(function(subdoc) {
         parse(subdoc, context);
       });
     }

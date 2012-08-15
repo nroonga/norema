@@ -1,22 +1,36 @@
 extends layout
 
 block content
-  if records.length > 0
-    .alert.alert-info
-      | Found #{num_found} entries.
-      | Showing #{from} - #{to} (#{num_showing} entries).
+  .row
+    .span12
+      if records.length > 0
+        .alert.alert-info
+          | Found #{num_found} entries.
+          | Showing #{from} - #{to} (#{num_showing} entries).
+      else
+        .alert.alert-info
+          | No entry found.
+  .row
+    .span9
+      if records.length > 0
+        each record, index in records
+          .record
+            h2 #{record.data.title}
+            p.path
+              each title, pathIndex in record.data.path
+                span.label.label-inverse
+                  = title
+                if pathIndex != record.data.path.length - 1
+                  span  &raquo; 
 
-    each record, index in records
-      .record
-        h2 #{record.data.title}
-        p.path
-          each title, pathIndex in record.data.path
-            span.label.label-inverse
-              = title
-            if pathIndex != record.data.path.length - 1
-              span  &raquo; 
+            !{record.data.desc}
 
-        !{record.data.desc}
-  else
-    .alert.alert-info
-      | No entry found.
+    .span3
+      .well(style="padding: 8px 0;")
+        ul.nav.nav-list
+          each facet, index in path_facets
+            li
+              a
+                = facet.value
+                | 
+                span.badge.badge-info= facet.count

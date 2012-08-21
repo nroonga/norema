@@ -51,7 +51,7 @@ block content
                     span.badge.badge-info= facet.count
         if records.length > 0
           .well(style="padding: 8px 0;")
-            ul.nav.nav-list
+            ul.nav.nav-list.toc
               each record, index in records
                 li
                   a(href='#'+record.id)

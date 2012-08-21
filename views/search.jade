@@ -3,10 +3,16 @@ extends layout
 block navbar
   form(action="search").navbar-search.pull-left
     input(type="text", value=query, name="query", placeholder="Search").input-xlarge#query
+  if facetSpecified
+    p.navbar-text
+      a(href=urlForSearch({query: query}), style='margin-left: 10px;')
+        |  in 
+        strong= facetSpecified
+        |  [X]
 
 block content
   .row
-    .span12
+    .span9
       if records.length > 0
         .alert.alert-info
           | Found #{numFound} entries.
@@ -15,8 +21,6 @@ block content
         .alert.alert-info
           | No entry found.
 
-  .row
-    .span9
       if records.length > 0
         include pager
         each record, index in records
@@ -35,12 +39,13 @@ block content
         include pager
 
     .span3
-      if pathFacets.length > 0
-        .well(style="padding: 8px 0;")
-          ul.nav.nav-list
-            each facet, index in pathFacets
-              li
-                a
-                  = facet.value
-                  | 
-                  span.badge.badge-info= facet.count
+      .side-nav('data-spy'='affix')
+        if pathFacets.length > 0
+          .well(style="padding: 8px 0;")
+            ul.nav.nav-list
+              each facet, index in pathFacets
+                li
+                  a(href=urlForSearch({query: query, in: facet.value}))
+                    = facet.value
+                    | 
+                    span.badge.badge-info= facet.count

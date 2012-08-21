@@ -9,8 +9,8 @@ block content
     .span12
       if records.length > 0
         .alert.alert-info
-          | Found #{num_found} entries.
-          | Showing #{from} - #{to} (#{num_showing} entries).
+          | Found #{numFound} entries.
+          | Showing #{from} - #{to} (#{numShowing} entries).
       else
         .alert.alert-info
           | No entry found.
@@ -32,10 +32,10 @@ block content
             !{record.data.desc}
 
     .span3
-      if path_facets.length > 0
+      if pathFacets.length > 0
         .well(style="padding: 8px 0;")
           ul.nav.nav-list
-            each facet, index in path_facets
+            each facet, index in pathFacets
               li
                 a
                   = facet.value

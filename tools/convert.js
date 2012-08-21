@@ -31,6 +31,8 @@ function parse(doc, context) {
   context = context || {};
   context.items = context.items || [];
   context.path = context.path || [];
+  context.type = context.type || null;
+  context.index = context.index || 0;
 
   if (title) {
     context.title = title;
@@ -39,19 +41,24 @@ function parse(doc, context) {
   if (doc.desc) {
     item.desc = doc.desc;
     item.title = context.title;
+    item.type = context.type;
+    item.index = context.index;
     item.path = context.path.map(function(item) {
       return item.title;
     }).filter(function(title) {
       return title;
     });
     context.items.push(item);
+    context.index++;
   }
 
   context.path.push(item);
   for (var type in doc) {
     if (doc[type] instanceof Array) {
       doc[type].forEach(function(subdoc) {
+        context.type = type;
         parse(subdoc, context);
+        context.type = null;
       });
     }
   }
@@ -63,11 +70,11 @@ function parse(doc, context) {
 function toSdf(records) {
   var version = (new Date()).getTime();
 
-  return records.map(function(record, index) {
-    console.log(index, record.path, record.title);
+  return records.map(function(record) {
+    console.log(record.index, record.type, record.path, record.title);
     return {
       type: 'add',
-      id: 'doc_' + index,
+      id: 'doc_' + record.index,
       version: version,
       lang: 'en',
       fields: record

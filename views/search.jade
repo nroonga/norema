@@ -17,8 +17,8 @@ block content
 
   .row
     .span9
-      include pager
       if records.length > 0
+        include pager
         each record, index in records
           .record
             h2
@@ -32,7 +32,7 @@ block content
                   span  &raquo; 
 
             !{record.data.desc}
-      include pager
+        include pager
 
     .span3
       if pathFacets.length > 0

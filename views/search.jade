@@ -24,7 +24,7 @@ block content
       if records.length > 0
         include pager
         each record, index in records
-          .record
+          section.record(id=record.id)
             h2
               a(href="http://nodejs.org/docs/latest/api/all.html#all_"+titleToId(record.data.title), target="_blank")= record.data.title
             p.path
@@ -39,7 +39,7 @@ block content
         include pager
 
     .span3
-      .side-nav('data-spy'='affix')
+      .side-nav('data-spy'='affix', style='width: 220px;')
         if pathFacets.length > 0
           .well(style="padding: 8px 0;")
             ul.nav.nav-list
@@ -49,3 +49,10 @@ block content
                     = facet.value
                     | 
                     span.badge.badge-info= facet.count
+        if records.length > 0
+          .well(style="padding: 8px 0;")
+            ul.nav.nav-list
+              each record, index in records
+                li
+                  a(href='#'+record.id)
+                    = record.data.title

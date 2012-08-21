@@ -14,8 +14,10 @@ block content
       else
         .alert.alert-info
           | No entry found.
+
   .row
     .span9
+      include pager
       if records.length > 0
         each record, index in records
           .record
@@ -30,6 +32,7 @@ block content
                   span  &raquo; 
 
             !{record.data.desc}
+      include pager
 
     .span3
       if pathFacets.length > 0

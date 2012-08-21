@@ -1,0 +1,14 @@
+ul.pager
+  if previousLink
+    li.previous
+      a(href=previousLink, rel='prev') &laquo; Prev
+  else
+    li.previous.disabled
+      a &laquo; Prev
+
+  if nextLink
+    li.next
+      a(href=nextLink, rel='next') Next &raquo;
+  else
+    li.next.disabled
+      a Next &raquo;

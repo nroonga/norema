@@ -24,7 +24,7 @@ block content
             p.path
               each title, pathIndex in record.data.path
                 span
-                  a(href="/search?"+querystring.stringify({query: title}))
+                  a(href=urlForSearch({query: title}))
                     = title
                 if pathIndex != record.data.path.length - 1
                   span  &raquo; 

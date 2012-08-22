@@ -48,6 +48,7 @@ function parse(doc, context) {
     }).filter(function(title) {
       return title;
     });
+    item.path_facet = item.path;
     context.items.push(item);
     context.index++;
   }

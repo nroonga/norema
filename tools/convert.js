@@ -99,7 +99,7 @@ var records = parse(doc);
 async.map(records, addTextField, function(error, results) {
     var sdf = toSdf(results);
     var sdfJson = JSON.stringify(sdf);
-    fs.writeFileSync('all.json.sdf', sdfJson);
+    fs.writeFileSync('all.sdf.json', sdfJson);
   }
 );
 

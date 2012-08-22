@@ -10,3 +10,18 @@
   [Groonga CloudSearch]: http://gcs.github.com/
   [Amazon CloudSearch]: http://aws.amazon.com/en/cloudsearch/
   [norema]: https://github.com/nroonga/norema
+
+
+## Setup
+
+TODO: write more
+
+    gcs-create-domain --domain-name norema
+    gcs-configure-fields --domain-name norema --name title --type text --option result
+    gcs-configure-fields --domain-name norema --name desc --type text --option result
+    gcs-configure-fields --domain-name norema --name text --type text --option result
+    gcs-configure-fields --domain-name norema --name path --type literal --option result
+    gcs-configure-fields --domain-name norema --name path_facet --type literal --option facet
+    gcs-configure-fields --domain-name norema --name type --type literal --option result
+    gcs-configure-fields --domain-name norema --name index --type uint
+    gcs-post-sdf --domain-name norema --source tools/all.sdf.json

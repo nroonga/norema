@@ -21,6 +21,7 @@ TODO: write more
     gcs-configure-fields --domain-name norema --name desc --type text --option result
     gcs-configure-fields --domain-name norema --name text --type text --option result
     gcs-configure-fields --domain-name norema --name path --type literal --option result
+    gcs-configure-fields --domain-name norema --name path --type literal --option search
     gcs-configure-fields --domain-name norema --name path_facet --type literal --option facet
     gcs-configure-fields --domain-name norema --name type --type literal --option result
     gcs-configure-fields --domain-name norema --name index --type uint

@@ -357,5 +357,5 @@ You can learn how [Groonga CloudSearch][] applications is built.
   [Node.js]: http://nodejs.org/
   [norema]: http://norema.herokuapp.com/
   [norema-dev]: https://github.com/nroonga/norema
-  [express.js]: http://expressjs.com/
+  [express]: http://expressjs.com/
   [Groonga CloudSearch]: http://gcs.groonga.org/

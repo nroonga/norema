@@ -3,8 +3,12 @@
 var fs = require('fs');
 var jsdom = require('jsdom');
 var async = require('async');
+var srcPath = 'all.json';
+var destPath = 'all.sdf.json';
 
-var json = fs.readFileSync('all.json');
+console.log('Converting ' + srcPath + ' into ' + destPath + ' ...');
+
+var json = fs.readFileSync(srcPath);
 var doc = JSON.parse(json);
 var jqueryPath = __dirname + '/jquery-1.7.2.min.js';
 var jquery = fs.readFileSync(jqueryPath).toString();
@@ -73,7 +77,6 @@ function toSdf(records) {
   var version = (new Date()).getTime();
 
   return records.map(function(record) {
-    console.log(record.index, record.type, record.path, record.title);
     return {
       type: 'add',
       id: 'doc_' + record.index,
@@ -101,7 +104,8 @@ var records = parse(doc);
 async.map(records, addTextField, function(error, results) {
     var sdf = toSdf(results);
     var sdfJson = JSON.stringify(sdf);
-    fs.writeFileSync('all.sdf.json', sdfJson);
+    fs.writeFileSync(destPath, sdfJson);
+    console.log('done!');
   }
 );
 

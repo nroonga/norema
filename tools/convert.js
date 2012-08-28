@@ -6,7 +6,8 @@ var async = require('async');
 
 var json = fs.readFileSync('all.json');
 var doc = JSON.parse(json);
-var jquery = fs.readFileSync("./jquery-1.7.2.min.js").toString();
+var jqueryPath = __dirname + '/jquery-1.7.2.min.js';
+var jquery = fs.readFileSync(jqueryPath).toString();
 
 function htmlToText(html, callback) {
   jsdom.env({
